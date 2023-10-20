@@ -2,12 +2,13 @@ package controller;
 
 import view.ExpenseTrackerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.ExpenseTrackerModel;
 import model.Transaction;
 
-public class ExpenseTrackerController implements TransactionFilter {
+public class ExpenseTrackerController {
 
   private ExpenseTrackerModel model;
   private ExpenseTrackerView view;
@@ -45,4 +46,12 @@ public class ExpenseTrackerController implements TransactionFilter {
   }
 
   // Other controller methods
+  // public List<Transaction> applyFilter(int strategy, List<Transaction> ogLst, Type T userInput){
+  //   List<Transaction> res = new ArrayList<>();
+  //   if (strategy == 0){
+  //     res = AmountFilter()
+
+  //   }
+
+  // }
 }
