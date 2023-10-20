@@ -46,12 +46,20 @@ public class ExpenseTrackerController {
   }
 
   // Other controller methods
-  // public List<Transaction> applyFilter(int strategy, List<Transaction> ogLst, Type T userInput){
-  //   List<Transaction> res = new ArrayList<>();
-  //   if (strategy == 0){
-  //     res = AmountFilter()
+  public List<Transaction> applyFilter(int strategy, List<Transaction> ogLst, double filterAmount,
+      String filterCategory) {
+        
+    List<Transaction> res = new ArrayList<>();
+    if (strategy == 0) {
+      AmountFilter amountFilter = new AmountFilter(filterAmount);
+      res = amountFilter.filter(ogLst);
 
-  //   }
+    } else if (strategy == 1) {
+      CategoryFilter categoryFilter = new CategoryFilter(filterCategory);
+      res = categoryFilter.filter(ogLst);
+    }
 
-  // }
+    return res;
+
+  }
 }

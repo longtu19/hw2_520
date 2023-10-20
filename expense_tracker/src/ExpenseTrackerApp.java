@@ -6,6 +6,7 @@ import model.ExpenseTrackerModel;
 import view.ExpenseTrackerView;
 import model.Transaction;
 import controller.InputValidation;
+import java.util.List;
 
 public class ExpenseTrackerApp {
 
@@ -32,6 +33,24 @@ public class ExpenseTrackerApp {
         JOptionPane.showMessageDialog(view, "Invalid amount or category entered");
         view.toFront();
       }
+
+
+    });
+
+    view.getAmountFilter().addActionListener(e -> {
+        String filterField = view.getFilterField();
+        double filterAmount = Double.parseDouble(filterField);
+
+        List<Transaction> res = controller.applyFilter(0, model.getTransactions(), filterAmount, "");
+
+    });
+
+
+    view.getCategoryFilter().addActionListener(e -> {
+        String filterField = view.getFilterField();
+
+        List<Transaction> res = controller.applyFilter(1, model.getTransactions(), 0, "filterField");
+
     });
 
   }
