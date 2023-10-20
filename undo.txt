@@ -1,0 +1,12 @@
+View:
+On the view, next to the Add Transaction buttom, we add a Delete Transaction button.
+Controller: 
+On the ExpenseTrackerApp.java, addd a action listener to the Delete Transaction button.
+When the user select the row and press on the Delete Transaction button, the action listener gets 
+the amount and category field and call the removeTransaction method in ExpenseTrackerController
+Create a removeTransaction which takes an amount and category, validates them and create a 
+new Transaction with those values and passes the new Transaction to the model by calling 
+the removeTransaction method from the model.
+The controller then remove the transaction from the table and calls on the view to refresh the table
+Model:
+When the removeTransaction method is called, it deletes from the list of transactions
