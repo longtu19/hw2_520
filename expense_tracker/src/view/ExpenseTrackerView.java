@@ -2,15 +2,17 @@ package view;
 
 import javax.swing.*;
 import javax.swing.JFormattedTextField.AbstractFormatterFactory;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import controller.InputValidation;
-
+import controller.ExpenseTrackerController;
 import java.awt.*;
 import java.text.NumberFormat;
 
 import model.Transaction;
 import java.util.List;
+
 
 public class ExpenseTrackerView extends JFrame {
 
@@ -19,7 +21,7 @@ public class ExpenseTrackerView extends JFrame {
   private JFormattedTextField amountField;
   private JTextField categoryField;
   private DefaultTableModel model;
-  private JFormattedTextField filterField;
+  private JTextField filterField;
   private JButton amountFilterBtn;
   private JButton categoryFilterBtn;
 
@@ -45,6 +47,7 @@ public class ExpenseTrackerView extends JFrame {
     // Create table
     transactionsTable = new JTable(model);
 
+
     // Layout components
     JPanel inputPanel = new JPanel();
     inputPanel.add(amountLabel);
@@ -57,7 +60,7 @@ public class ExpenseTrackerView extends JFrame {
     buttonPanel.add(addTransactionBtn);
 
     // Filter Field
-    filterField = new JFormattedTextField(format);
+    filterField = new JTextField();
     filterField.setColumns(10);
     
 
@@ -158,5 +161,6 @@ public class ExpenseTrackerView extends JFrame {
   public void setCategoryField(JTextField categoryField) {
     this.categoryField = categoryField;
   }
+
 
 }

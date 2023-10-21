@@ -10,7 +10,6 @@ public class CategoryFilter implements TransactionFilter {
 
     public CategoryFilter(String inputCategory) {
         this.userCategory = inputCategory;
-
     }
 
     @Override

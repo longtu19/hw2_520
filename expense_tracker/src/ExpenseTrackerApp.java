@@ -34,23 +34,28 @@ public class ExpenseTrackerApp {
         view.toFront();
       }
 
-
     });
 
-    view.getAmountFilter().addActionListener(e -> {
-        String filterField = view.getFilterField();
-        double filterAmount = Double.parseDouble(filterField);
-
-        List<Transaction> res = controller.applyFilter(0, model.getTransactions(), filterAmount, "");
-
-    });
 
 
     view.getCategoryFilter().addActionListener(e -> {
-        String filterField = view.getFilterField();
+      String filterField = view.getFilterField();
+      if(InputValidation.isValidCategory(filterField)){
+        List<Transaction> res = controller.applyFilter(1, model.getTransactions(), 0, filterField);
 
-        List<Transaction> res = controller.applyFilter(1, model.getTransactions(), 0, "filterField");
+      };
+      
+    });
 
+    view.getAmountFilter().addActionListener(e -> {
+      String filterField = view.getFilterField();
+      double filterAmount = Double.parseDouble(filterField);
+      if (InputValidation.isValidAmount(filterAmount)){
+          List<Transaction> res = controller.applyFilter(0, model.getTransactions(), filterAmount, "");
+
+
+      };
+      
     });
 
   }

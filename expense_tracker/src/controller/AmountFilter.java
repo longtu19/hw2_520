@@ -9,9 +9,6 @@ public class AmountFilter implements TransactionFilter {
     private double filterAmount;
     public AmountFilter (double amount){
         this.filterAmount = amount;
-
-
-
     }
 
     @Override
@@ -21,7 +18,6 @@ public class AmountFilter implements TransactionFilter {
             if (t.getAmount() == this.filterAmount){
                 resultLst.add(t);
             }
-
         }
         return resultLst;
 
